@@ -1,0 +1,179 @@
+#!/usr/bin/env python2.7
+# deps: pip install python-daemon bottle
+#
+#   2018 (c) justinas@eofnet.lt, EofNET LAB10
+#
+
+
+
+import sys, os
+from pyA20.gpio import gpio
+from pyA20.gpio import port
+from time import sleep
+import argparse
+import daemon
+import logging
+import subprocess
+import json
+import re
+from bottle import run, post, request, response, get, route
+
+portai = [port.PG7, port.PG6, port.PG9, port.PA20, port.PA10, port.PA9, port.PG8, port.PA8, port.PA7, port.PA2, port.PC7, port.PC4, port.PA3, port.PA0, port.PA1, port.PD14]
+
+if not os.getegid() == 0:
+      sys.exit('Script must be run as root')
+
+# portas = port.PG7 # violetinis 1
+# portas = port.PG6 # geltonas 2
+# portas = port.PG9 # rudas 3
+# portas = port.PA20 # morkinis 4
+# portas = port.PA10 # melynas 5
+# portas = port.PA9 # zalias 6
+# portas = port.PG8 # pilkas 7
+# portas = port.PA8 # baltas 8
+# kitas laidas 8 gyslu
+# portas = port.PA7 # rudas 9
+# portas = port.PA2 # raudonas 10
+# portas = port.PC7 # morkinis 11
+# portas = port.PC4 # geltonas 12
+# portas = port.PA3 # zalias 13
+# portas = port.PA0 # melynas 14
+# portas = port.PA1 # feletavas 15
+# portas = port.PD14 # pilkas 16
+
+gpio.init()
+
+
+class Device:
+      def __init__(self, id, state, name): 
+          self.id = id
+          self.state = state
+          self.name = name
+
+
+def testas():
+	for portas in portai:
+	    os.system("piesti_lcd --text \"ijungiam: "+str(portas)+"\"")
+	    gpio.setcfg(portas, gpio.OUTPUT)
+	    gpio.output(portas, gpio.LOW)
+	    sleep(1)
+	for portas in portai:
+	    os.system("piesti_lcd --text \"Isjungiam gpio porta: "+str(portas)+"\"")
+	    gpio.output(portas, gpio.HIGH)
+	    sleep(1)
+	    print ("OK ;-)")
+
+def writegpio(portas,switch):
+  gpio.setcfg(int(portas), gpio.OUTPUT)
+  if portas is not None:
+    if switch is 1:
+      gpio.output(int(portas), gpio.HIGH)
+    elif switch is 0:
+      gpio.output(int(portas), gpio.LOW)
+
+def getstate(port):
+   state = gpio.input(port)
+   return state
+
+def getname(port):
+   hand = open('/etc/mods/settings')
+   for line in hand:
+     line = line.rstrip()
+     if re.search('^GPIO_'+str(port)+'=', line):
+        var,name = line.split("=")
+        return name
+
+def offall():
+   for portas in portai:
+    gpio.setcfg(int(portas), gpio.OUTPUT)
+    gpio.output(portas, gpio.HIGH)
+
+def onall():
+   for portas in portai:
+    gpio.setcfg(int(portas), gpio.OUTPUT)
+    gpio.output(portas, gpio.LOW)
+
+def printports():
+   count = 0
+   for portas in portai:
+     count += 1
+     print ("GPIO_"+str(portas))
+
+
+
+def daemonize():
+	    print ("Daemonizing..")
+            @route('/turn/<port>/on')
+            def returnturnon(port):
+               writegpio(port,0)
+               respond = { "answer": "ok" }
+               return json.dumps(respond)
+            @route('/turn/<port>/off')
+            def returnturnoff(port):
+               writegpio(port,1)
+               respond = { "answer": "ok" }
+               return json.dumps(respond)
+            @route('/offall')
+            def returnoffall():
+               offall()
+               return "OK"
+            @route('/onall')
+            def returnturnonall():
+               onall()
+               return "OK"
+            @route('/version')
+            def version():
+               return "Relay control script (c) 2018 justinas@eofnet.lt"
+            @route('/devices',method = 'GET')
+            def devices():
+               dev = []
+               for portas in portai:
+                 state = getstate(portas)
+                 name = getname(portas)
+                 dev.append({ "id": portas, "name": name, "state": state })
+               return json.dumps(dev)
+
+	    @route('/ports')
+	    def returnarray():
+		    from bottle import response
+		    from json import dumps
+		    rv = [{ "id": 1, "name": "Test Item 1" }, { "id": 2, "name": "Test Item 2" }]
+		    response.content_type = 'application/json'
+		    return dumps(portai)
+
+	    run(host='0.0.0.0', port=1415, debug=False)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='16 GPIO Relay controller script (c) 2018 justinas@eofnet.lt, EOFNET LAB10',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument('--port', '-t', type=int, default='199', help='Write GPIO port number!')
+    parser.add_argument('--state', action='store_true')
+    parser.add_argument('--switch', type=int, default=1, choices=[0, 1], help='Switcher on/off')
+    parser.add_argument('--test', action='store_true')
+    parser.add_argument('--ports',action='store_true')
+    parser.add_argument('--onall',action='store_true')
+    parser.add_argument('--offall',action='store_true')
+    parser.add_argument('--daemonize',action='store_true')
+    args = parser.parse_args()
+if args.test:
+    testas()
+else:
+    try:
+       if args.state:
+         print getstate(args.port)
+       elif args.ports:
+         printports()
+       elif args.onall:
+         onall()
+       elif args.offall:
+         offall()
+       elif args.daemonize:
+         daemonize()
+       else:
+          writegpio(args.port,args.switch)
+    except KeyboardInterrupt:
+        pass
+
+# sorry for the inconvienence, but actually, this is my first Python script, i'm Perl lover, and just messing around this shit because it already has GPIO Interface tools
+# i'm too lazy and have no time to rewrite all these libraries in perl...

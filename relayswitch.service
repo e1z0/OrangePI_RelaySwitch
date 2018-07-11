@@ -1,0 +1,11 @@
+[Unit]
+Description=Power Switch Relay Network Service
+After=network.target
+
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/relay_switch --daemonize
+
+[Install]
+WantedBy=multi-user.target

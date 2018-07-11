@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:id="@+id/relay_name"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="left"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:text="Pavadinimas" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+        <ImageButton
+            android:id="@+id/relay_switch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dip"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:gravity="center"
+            android:src="@mipmap/ic_power_on"
+            android:visibility="visible" />
+    </LinearLayout>
+</LinearLayout>

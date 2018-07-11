@@ -1,5 +1,14 @@
 # OrangePI_RelaySwitch
 Power Switching using 1-16 Relays and OrangePI (all OrangePI variations should work)
+Hardware Requirements:
+* Buy OrangePI2 Lite https://www.ebay.co.uk/itm/Orange-Pi-Lite-with-Quad-Core-1-2GHz-512MB-DDR3-WiFi-Mini-PC-Mali400MP2-GPU/272887180399?hash=item3f8957ec6f:g:~4cAAOSwS0lZ4ePd
+* Buy 16 Relay Switch https://www.ebay.co.uk/itm/1-2-4-6-8-5V-Channel-Relay-Board-Module-Optocoupler-LED-for-Arduino-PiC-ARM-AVR-/273141723460?var=&hash=item3f9883f144
+
+Software Requirements:
+* Armbian
+
+![testas](/IMG_20180711_143803.jpg) ![testas2](IMG_20180711_143815.jpg)
+
 
 # Prepare OrangePI
 You need to have Armbian or compatible Linux distribution on your OrangePI, then you need to connect GPIO ports from Relay to you OrangePI, here is the scheme how to do this:

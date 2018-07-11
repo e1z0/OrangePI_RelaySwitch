@@ -1,20 +1,20 @@
 # OrangePI_RelaySwitch
-Power Switching using 1-16 Relays and OrangePI (all variations should work)
+Power Switching using 1-16 Relays and OrangePI (all OrangePI variations should work)
 
 # Prepare OrangePI
-You need to have Armbian or complatible Linux distribution on your OrangePI, then you need to connect GPIO ports [[FIXME]]
+You need to have Armbian or compatible Linux distribution on your OrangePI, then you need to connect GPIO ports 
+[FIXME]
 
 # Install GPIO Support library (designed especially for OrangePI)
 ```
-git clone https://github.com/zhaolei/WiringOP.git -b h3
-cd WiringOP
-chmod +x ./build
-sudo ./build
+git clone https://github.com/duxingkei33/orangepi_PC_gpio_pyH3
+cd orangepi_PC_gpio_pyH3
+sudo python setup.py install
 ```
 
 # Install the relay switching daemon and it's dependencies
 ```
-apt install python-setuptools python-pip
+apt install python-setuptools python-pip python-dev
 pip install python-daemon bottle
 wget https://raw.githubusercontent.com/e1z0/OrangePI_RelaySwitch/master/relay_switch -O /usr/local/bin/relay_switch
 wget https://raw.githubusercontent.com/e1z0/OrangePI_RelaySwitch/master/relayswitch.service -O /etc/systemd/system/relayswitch

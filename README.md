@@ -2,8 +2,9 @@
 Power Switching using 1-16 Relays and OrangePI (all OrangePI variations should work)
 
 # Prepare OrangePI
-You need to have Armbian or compatible Linux distribution on your OrangePI, then you need to connect GPIO ports 
-[FIXME]
+You need to have Armbian or compatible Linux distribution on your OrangePI, then you need to connect GPIO ports from Relay to you OrangePI, here is the scheme how to do this:
+![test](/orangepi_pins.png)
+
 
 # Install GPIO Support library (designed especially for OrangePI)
 ```

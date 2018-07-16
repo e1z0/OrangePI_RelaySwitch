@@ -8,13 +8,18 @@ Software Requirements:
 * Armbian
 
 ![testas](/IMG_20180711_143803.jpg) ![testas2](IMG_20180711_143815.jpg)
-
+![test0](/IMG_20180714_231605.jpg)
 ![testas3](/android_app_pic.png)
 
 
 # Prepare OrangePI
 You need to have Armbian or compatible Linux distribution on your OrangePI, then you need to connect GPIO ports from Relay to you OrangePI, here is the scheme how to do this:
 ![test](/orangepi_pins.png)
+
+
+![test2](/OPiLite_pinout.jpg)
+
+![test3](/IMG_20180714_205435.jpg)
 
 
 # Install GPIO Support library (designed especially for OrangePI)

@@ -86,4 +86,8 @@ It will be read each time, then the app request the list of the devices
 * https://github.com/tokarev25/craftbeerpi
 * https://github.com/adnio/opi_miracle
 * https://github.com/nopnop2002/ili9340spi_rpi
-
+* https://github.com/mvdiogo/gpu_orangepi
+* https://github.com/Alex2269/orangepi_tft
+* https://github.com/Naminator/gpio-door
+* https://github.com/hankso/OrangePi-BuildML
+* https://github.com/KushlaVR/OrangePiWeb

@@ -69,3 +69,21 @@ It will be read each time, then the app request the list of the devices
 * Make web interface for interacting with the relays
 
 *You can request more features too, just write in the issues tab...*
+
+## Other projects/libraries for OrangePI that i found in github
+
+* https://github.com/thk4711/orangepi-radio
+* https://github.com/trebisky/orangepi
+* https://github.com/FREEWING-JP/OrangePi_CedarX
+* https://github.com/mvdiogo/opencv-orangepi
+* https://github.com/evergreen-it-dev/orangepi
+* https://github.com/koksalkapucuoglu/Orangepi-python
+* https://github.com/ludiazv/node-nrf24
+* https://github.com/najnesnaj/touchscreen-focaltech-opi
+* https://github.com/OrangePiRobotics/ftc_app_master-2016-2017 - Robot code
+* https://github.com/orangepi-xunlong/OrangePi2MicrosoftAzure
+* https://github.com/thunderbom/ORANGEPI_Website
+* https://github.com/tokarev25/craftbeerpi
+* https://github.com/adnio/opi_miracle
+* https://github.com/nopnop2002/ili9340spi_rpi
+

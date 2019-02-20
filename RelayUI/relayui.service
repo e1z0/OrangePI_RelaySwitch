@@ -1,0 +1,13 @@
+[Unit]
+Description=relayUI
+After=network.target auditd.service
+
+[Service]
+User=pi
+Type=forking
+ExecStart=/usr/bin/sudo /usr/bin/python /home/pi/RelayUI/relayUI.py
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -7,7 +7,12 @@ Hardware Requirements:
 Software Requirements:
 * Armbian
 
-## Project Features
+## Project Tree
+
+# News
+
+* 2019.04.11 - Tizen app is available in public.
+* 2018.07.x - First public release of the project.
 
 # Android APP
 

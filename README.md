@@ -72,24 +72,24 @@ Also you can use **/usr/local/bin/relay_switch** for external commands, it suppo
 
 You can also specify their names... Run command
 ```/usr/local/bin/relay_switch --ports``` to show all the ports, copy them to the **/etc/mods/settings** file and make names for them for example i have this list:
-```GPIO_199=monitorius 1
-GPIO_198=stalas
-GPIO_201=taburete
-GPIO_20=kazkokia rozete
-GPIO_10=grindinis sildymas
-GPIO_9=pecius
-GPIO_200=staline lempa
-GPIO_8=tulikos sviesa
-GPIO_7=ceinykas
-GPIO_2=virykle
-GPIO_71=lauko sviesa
-GPIO_68=veranda
-GPIO_3=skladukas
-GPIO_0=balkonas
-GPIO_1=virtuves sviesa
-GPIO_110=testas
+```GPIO_199=...
+GPIO_198=...
+GPIO_201=MIEGAMASIS
+GPIO_20=DARBO KAMBARYS
+GPIO_10=VEIDRODIS
+GPIO_9=VIRTUVE
+GPIO_200=LAUKO SVIESA
+GPIO_8=KORIDORIUS
+GPIO_7=...
+GPIO_2=...
+GPIO_71=...
+GPIO_68=...
+GPIO_3=...
+GPIO_0=...
+GPIO_1=...
+GPIO_110=...
 ```
-It will be read each time, then the app request the list of the devices
+It will be read each time, then the app request the list of the devices, lines with "..." are skipped on some apps like tizen one.
 
 **TODO:**
 * Make auto discovery of such relays on the network (Multiple relay support)

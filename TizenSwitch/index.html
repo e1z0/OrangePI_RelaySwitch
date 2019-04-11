@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<title>Circular UI</title>
+	<link rel="stylesheet" href="lib/tau/wearable/theme/default/tau.min.css">
+	<link rel="stylesheet" media="all and (-tizen-geometric-shape: circle)" href="lib/tau/wearable/theme/default/tau.circle.min.css">
+	<!-- load theme file for your application -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="ui-page ui-page-active" id="main">
+		<header class="ui-header">
+			<h2 class="ui-title">Relay switch</h2>
+		</header>
+		<div class="ui-content">
+			<ul class="ui-listview ui-snap-listview" id="listRelays" data-role="listview">
+			<!-- 	<li><a href="#">List1</a></li>
+				<li><a href="#">List2</a></li>
+				<li><a href="#">List3</a></li>
+				<li><a href="#">List4</a></li>
+				<li><a href="#">List5</a></li>
+				<li><a href="#">List6</a></li>
+				<li><a href="#">List7</a></li>
+				<li><a href="#">List8</a></li>
+				<li><a href="#">List9</a></li>
+				<li><a href="#">List10</a></li> -->
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="lib/tau/wearable/js/tau.min.js"></script>
+	<script type="text/javascript" src="js/circle-helper.js"></script>
+	<script src="app.js"></script>
+	<script src="lowBatteryCheck.js"></script>
+</body>
+</html>

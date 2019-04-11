@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="https://github.com/e1z0/OrangePI_RelaySwitch" version="1.0.0" viewmodes="maximized">
+    <tizen:application id="dCxoA1WDf6.RelaySwitch" package="dCxoA1WDf6" required_version="2.3.1"/>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.normal"/>
+    <icon src="kisspng-computer-icons-favicon-latching-relay-light-switch-icons-no-attribution-5ab09d7dad1d72.3514324515215240937091.jpg"/>
+    <name>RelaySwitch</name>
+    <tizen:privilege name="http://tizen.org/privilege/internet"/>
+    <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
+    <tizen:profile name="wearable"/>
+    <tizen:setting hwkey-event="enable"/>
+     <access origin="*" subdomains="true"/>
+</widget>

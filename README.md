@@ -7,19 +7,37 @@ Hardware Requirements:
 Software Requirements:
 * Armbian
 
-![testas](/IMG_20180711_143803.jpg) ![testas2](IMG_20180711_143815.jpg)
-![test0](/IMG_20180714_231605.jpg)
-![testas3](/android_app_pic.png)
+![testas](/pics/IMG_20180711_143803.jpg) ![testas2](/pics/IMG_20180711_143815.jpg)
+![test0](/pics/IMG_20180714_231605.jpg)
+
+# Android APP
+
+![testas3](/pics/android_app_pic.png)
+
+[project source is here](/AndroidApp)
+
+# New !!! RaspberryPI LCD touchscreen APP
+
+![rpilcd](/pics/IMG_20190220_175057.jpg)
+
+[project source is here](/RelayUI)
+
+
+# New !!! Samsung Gear Fit2 Pro (Tizen 2.3.1) APP
+
+![tizen](/pics/IMG_20190312_140336.jpg)
+
+[project source is here](/TizenSwitch)
 
 
 ## Prepare OrangePI
 You need to have Armbian or compatible Linux distribution on your OrangePI, then you need to connect GPIO ports from Relay to you OrangePI, here is the scheme how to do this:
-![test](/orangepi_pins.png)
+![test](/pics/orangepi_pins.png)
 
 
-![test2](/OPiLite_pinout.jpg)
+![test2](/pics/OPiLite_pinout.jpg)
 
-![test3](/IMG_20180714_205435.jpg)
+![test3](/pics/IMG_20180714_205435.jpg)
 
 
 ## Install GPIO Support library (designed especially for OrangePI)

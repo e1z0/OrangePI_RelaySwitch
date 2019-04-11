@@ -7,8 +7,7 @@ Hardware Requirements:
 Software Requirements:
 * Armbian
 
-![testas](/pics/IMG_20180711_143803.jpg) ![testas2](/pics/IMG_20180711_143815.jpg)
-![test0](/pics/IMG_20180714_231605.jpg)
+## Project Features
 
 # Android APP
 
@@ -28,6 +27,12 @@ Software Requirements:
 ![tizen](/pics/IMG_20190312_140336.jpg)
 
 [project source is here](/TizenSwitch)
+
+# Hardware pictures
+
+![testas](/pics/IMG_20180711_143803.jpg) ![testas2](/pics/IMG_20180711_143815.jpg)
+![test0](/pics/IMG_20180714_231605.jpg)
+
 
 
 ## Prepare OrangePI

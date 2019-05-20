@@ -1,6 +1,8 @@
 #!/usr/bin/python2.7
 # RelayUI Embedded for Raspberry PI TFT 3.5"
 # (c) 2018-2019 justinas@eofnet.lt
+# req: apt-get install python-requests python-pygame
+# req: git clone https://github.com/fictorial/pygameui.git&&cd pygameui&&easy_install .
 API="http://192.168.254.102:1415/"
 DEBUG=1
 import requests

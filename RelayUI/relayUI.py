@@ -3,10 +3,11 @@
 # (c) 2018-2019 justinas@eofnet.lt
 # Make sure you are already enabled the kernel I2C module on your Raspberry PI
 # INSTALL
-# apt-get install python-requests python-pygame autoconf libtool i2c-tools evtest tslib libts-bin
+# apt-get install python-requests python-pygame autoconf libtool i2c-tools evtest tslib libts-bin libsdl1.2-dev libsdl-image1.2-dev libsdl-ttf2.0-dev
 # git clone https://github.com/fictorial/pygameui.git&&cd pygameui&&easy_install .
 # git clone https://github.com/libts/tslib.git&&autoreconf -vi&&./configure&&make&&make install
 # sudo cp -P /usr/local/lib/libts* /usr/lib/arm-linux-gnueabihf/&&i2cdetect -y 1
+# apply fix from: http://wiki.eofnet.lt/wiki/TFT_3.5_LCD_Raspberry#pygameui_fix
 # Calibrate
 # TSLIB_TSDEVICE=/dev/input/event0 TSLIB_FBDEVICE=/dev/fb1 TSLIB_CONFFILE=/etc/ts.conf TSLIB_PLUGINDIR=/usr/lib/ts ts_calibrate 
 # Test

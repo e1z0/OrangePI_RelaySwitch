@@ -1,8 +1,18 @@
 #!/usr/bin/python2.7
 # RelayUI Embedded for Raspberry PI TFT 3.5"
 # (c) 2018-2019 justinas@eofnet.lt
-# req: apt-get install python-requests python-pygame
-# req: git clone https://github.com/fictorial/pygameui.git&&cd pygameui&&easy_install .
+# Make sure you are already enabled the kernel I2C module on your Raspberry PI
+# INSTALL
+# apt-get install python-requests python-pygame autoconf libtool i2c-tools evtest tslib libts-bin
+# git clone https://github.com/fictorial/pygameui.git&&cd pygameui&&easy_install .
+# git clone https://github.com/libts/tslib.git&&autoreconf -vi&&./configure&&make&&make install
+# sudo cp -P /usr/local/lib/libts* /usr/lib/arm-linux-gnueabihf/&&i2cdetect -y 1
+# Calibrate
+# TSLIB_TSDEVICE=/dev/input/event0 TSLIB_FBDEVICE=/dev/fb1 TSLIB_CONFFILE=/etc/ts.conf TSLIB_PLUGINDIR=/usr/lib/ts ts_calibrate 
+# Test
+# TSLIB_TSDEVICE=/dev/input/event0 TSLIB_FBDEVICE=/dev/fb1 TSLIB_CONFFILE=/etc/ts.conf TSLIB_PLUGINDIR=/usr/lib/ts ts_test
+# Usage
+# TSLIB_TSDEVICE=/dev/input/event0 TSLIB_FBDEVICE=/dev/fb1 TSLIB_CONFFILE=/etc/ts.conf TSLIB_PLUGINDIR=/usr/lib/ts ./relaySwitch.py 
 API="http://192.168.254.102:1415/"
 DEBUG=1
 import requests
@@ -25,7 +35,7 @@ logger.addHandler(console_handler)
  
 os.putenv('SDL_FBDEV', '/dev/fb1')
 os.putenv('SDL_MOUSEDRV', 'TSLIB')
-os.putenv('SDL_MOUSEDEV', '/dev/input/touchscreen')
+os.putenv('SDL_MOUSEDEV', '/dev/input/event0')
  
 MARGIN = 30
 
